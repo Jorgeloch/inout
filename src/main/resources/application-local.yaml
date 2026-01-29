@@ -1,0 +1,44 @@
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+spring:
+  application:
+    name: InOut
+
+  datasource-write:
+    jdbc-url: ${DB_URL_WRITE}
+    username: ${DB_USER_WRITE}
+    password: ${DB_PASSWORD_WRITE}
+    driver-class-name: org.postgresql.Driver
+
+    hikari:
+      pool-name: WritePool
+      maximum-pool-size: 8
+      minimum-idle: 4
+      connection-timeout: 5000
+      validation-timeout: 2000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-test-query: SELECT 1
+
+  datasource-read:
+    jdbc-url: ${DB_URL_READ}
+    username: ${DB_USER_READ}
+    password: ${DB_PASSWORD_READ}
+    driver-class-name: org.postgresql.Driver
+
+    hikari:
+      pool-name: ReadPool
+      maximum-pool-size: 8
+      minimum-idle: 4
+      connection-timeout: 5000
+      validation-timeout: 2000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-test-query: SELECT 1

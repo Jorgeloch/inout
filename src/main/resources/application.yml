@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: local
+
+server:
+  servlet:
+    context-path: /api
+  datasource:
+    url:
+    name:
+    password: ""
+    driver-class-name: org.postgresql.Driver
