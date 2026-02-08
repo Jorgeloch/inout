@@ -1,4 +1,4 @@
-package com.inout.domain.repository;
+package com.inout.domain.repository.auth;
 
 import com.inout.domain.model.entities.Auth;
 

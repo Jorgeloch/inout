@@ -4,7 +4,7 @@ import com.inout.application.dto.auth.requests.LogInRequestDTO;
 import com.inout.domain.exception.auth.InvalidEmailException;
 import com.inout.domain.exception.auth.InvalidPasswordException;
 import com.inout.domain.model.entities.Auth;
-import com.inout.domain.repository.AuthRepository;
+import com.inout.domain.repository.auth.AuthRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
