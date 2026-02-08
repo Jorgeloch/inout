@@ -4,7 +4,7 @@ import com.inout.application.dto.auth.requests.LogInRequestDTO;
 import com.inout.application.dto.auth.requests.SignInRequestDTO;
 import com.inout.application.dto.auth.responses.LogInResponseDTO;
 import com.inout.application.usecase.auth.LogIn;
-import com.inout.application.usecase.auth.SignIn;
+import com.inout.application.usecase.auth.Register;
 import com.inout.domain.model.entities.Auth;
 import com.inout.infrastructure.token.JWTTokenService;
 import jakarta.validation.Valid;
@@ -20,23 +20,23 @@ import java.net.URI;
 @RestController
 @RequestMapping("v1/auth")
 public class AuthController {
-    private final SignIn signIn;
+    private final Register register;
     private final LogIn logIn;
     private final JWTTokenService jwtTokenService;
 
     public AuthController(
-            SignIn signIn,
+            Register register,
             LogIn logIn,
             JWTTokenService jwtTokenService
     ) {
         this.logIn = logIn;
-        this.signIn = signIn;
+        this.register = register;
         this.jwtTokenService = jwtTokenService;
     }
 
-    @PostMapping("/sign-in")
+    @PostMapping("/register")
     public ResponseEntity<?> signIn(@RequestBody @Valid SignInRequestDTO dto) {
-        Auth authUser = this.signIn.execute(dto);
+        Auth authUser = this.register.execute(dto);
         URI uri = UriComponentsBuilder
                 .fromPath("/v1/auth/{id}")
                 .buildAndExpand(authUser.getId())

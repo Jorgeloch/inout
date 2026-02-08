@@ -2,6 +2,7 @@ package com.inout.domain.model.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.UUID;
 
@@ -9,15 +10,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Auth {
     UUID id;
+    @Setter
     String email;
+    @Setter
     String passwordHash;
-
-    public Auth(
-            String email,
-            String passwordHash
-    ) {
-        this.id = UUID.randomUUID();
-        this.email = email;
-        this.passwordHash = passwordHash;
-    }
 }

@@ -6,6 +6,11 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public record SignInRequestDTO(
+        @NotNull(message = "user name must be provided")
+        @NotBlank(message = "user name must not be a blank string")
+        @Size(min = 4, max = 50, message = "O nome deve ter entre 4 e 50 caracteres")
+        String name,
+
         @Email(message = "email must be a valid email address")
         @NotNull(message = "email must be provided")
         @NotBlank(message = "email cannot be blank")
