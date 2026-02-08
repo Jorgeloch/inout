@@ -7,5 +7,5 @@ import java.util.UUID;
 
 public interface RecurrenceRuleRepository {
     void create(RecurrenceRule rule);
-    Optional<RecurrenceRule> findByPurchaseId(UUID purchaseId);
+    Optional<RecurrenceRule> findByIncomeId(UUID incomeId);
 }

@@ -17,13 +17,25 @@ import java.util.UUID;
 @Getter
 @AllArgsConstructor
 public class RecurrenceRule {
-    UUID purchaseId;
+    UUID incomeId;
     @Setter
     RecurrenceFrequency frequency;
     @Setter
     int interval;
     LocalDate startDate;
-    boolean active;
+    boolean active = true;
+
+    public RecurrenceRule(
+        UUID incomeId,
+        RecurrenceFrequency frequency,
+        int interval,
+        LocalDate startDate
+    ) {
+        this.incomeId = incomeId;
+        this.frequency = frequency;
+        this.interval = interval;
+        this.startDate = startDate;
+    }
 
     private LocalDate alignCursor(LocalDate target, AlingStrategy strategy) {
         return strategy.align(startDate, target, interval);
@@ -54,5 +66,13 @@ public class RecurrenceRule {
             cursor = next(cursor);
         }
         return occurrences;
+    }
+
+    public void activate() {
+        this.active = true;
+    }
+
+    public void deactivate() {
+        this.active = false;
     }
 }

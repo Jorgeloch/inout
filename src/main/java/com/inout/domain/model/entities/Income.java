@@ -20,7 +20,7 @@ public class Income {
     private BigDecimal amount;
     @Setter
     private LocalDate baseDueDate;
-
+    @Setter
     private RecurrenceRule recurrenceRule;
     private boolean active = true;
 
@@ -28,15 +28,13 @@ public class Income {
             UUID userId,
             String description,
             BigDecimal amount,
-            LocalDate baseDueDate,
-            RecurrenceRule recurrenceRule
+            LocalDate baseDueDate
     ) {
         this.Id = UUID.randomUUID();
         this.userId = userId;
         this.description = description;
         this.amount = amount;
         this.baseDueDate = baseDueDate;
-        this.recurrenceRule = recurrenceRule;
     }
 
     public void activate() {

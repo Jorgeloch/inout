@@ -1,5 +1,6 @@
 package com.inout.application.dto.income;
 
+import com.inout.application.dto.recurrence_rule.CreateRecurrenceDTO;
 import com.inout.domain.model.entities.RecurrenceRule;
 import jakarta.validation.constraints.*;
 
@@ -19,6 +20,6 @@ public record CreateIncomeDTO(
         @NotNull(message = "base due date must be provided")
         LocalDate baseDueDate,
 
-        RecurrenceRule recurrence
+        CreateRecurrenceDTO recurrence
 ) {
 }
